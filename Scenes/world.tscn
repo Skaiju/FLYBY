@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://buvrl1fia4gc"]
+
+[node name="World" type="Node3D"]
+
+[node name="Terrain" type="StaticBody3D" parent="."]
+
+[node name="Terrain Mesh" type="MeshInstance3D" parent="Terrain"]
+
+[node name="Terrain Collider" type="CollisionShape3D" parent="Terrain"]

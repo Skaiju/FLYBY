@@ -4,8 +4,8 @@ uniform sampler2D sand : source_color;
 uniform sampler2D grass : source_color;
 uniform sampler2D snow : source_color;
 
-uniform float min_sand_height = 0;
-uniform float max_grass_height = 20;
+uniform float min_sand_height = 2;
+uniform float max_grass_height = 10;
 
 varying float vertex_y;
 uniform vec2 uv_scale = vec2(5);
@@ -18,7 +18,7 @@ void fragment() {
 	vec3 snow_albedo = texture(snow,UV*uv_scale).rgb;	
 	
 	float weight_1 = smoothstep(min_sand_height, max_grass_height,vertex_y);
-	vec3 final_color = mix(sand_albedo, grass_albedo, weight_1);
+	vec3 final_color = mix(sand_albedo, grass_albedo, weight_1 + 0.1);
 	
 	ALBEDO = final_color.rgb;
 

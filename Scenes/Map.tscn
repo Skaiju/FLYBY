@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2cn81exi4yqx"]
+[gd_scene load_steps=12 format=3 uid="uid://bq258f80ryl8v"]
 
 [ext_resource type="PackedScene" uid="uid://b35mxcc3d74di" path="res://Scenes/WaterPlane.tscn" id="1_8u2yh"]
 [ext_resource type="Shader" path="res://Shaders/Terrain.gdshader" id="1_italc"]
@@ -22,9 +22,9 @@ noise = SubResource("FastNoiseLite_aaygo")
 render_priority = 0
 shader = ExtResource("1_italc")
 shader_parameter/albedo = Color(0, 0.584314, 0, 1)
+shader_parameter/noise_scale = 50.0
 shader_parameter/height_scale = 2.429
 shader_parameter/noise = SubResource("NoiseTexture2D_ey57i")
-shader_parameter/noise_scale = 50.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_cusnu"]
 

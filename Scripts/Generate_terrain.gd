@@ -7,15 +7,15 @@ var terrain: MeshInstance3D
 var terrain_collider: CollisionShape3D
 var water: PackedScene = preload("res://Scenes/Water.tscn")
 
-var noise_amplitude: int = 80
-var noise_scale: float = 1
+var noise_amplitude: int = 160
+var noise_scale: float = 0.6
 var terrain_res: int = 1
 var size: int = 200
-var water_height: int = 2
+var water_height: int = 5
 
 func _ready():
-	terrain = $TerrainMesh
-	terrain_collider = $TerrainCollider
+	terrain = $"Terrain Mesh"
+	terrain_collider = $"Terrain Collider"
 	var this_water = water.instantiate()
 	add_child(this_water)
 	this_water.scale = Vector3(size,1,size)

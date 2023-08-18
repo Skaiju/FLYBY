@@ -7,11 +7,11 @@ var terrain: MeshInstance3D
 var terrain_collider: CollisionShape3D
 var water: PackedScene = preload("res://Scenes/Water.tscn")
 
-var noise_amplitude: int = 200
-var noise_scale: float = 0.5
+var noise_amplitude: int = 260
+var noise_scale: float = 0.3
 var terrain_res: int = 1
-var size: int = 200
-var water_height: int = 7
+var size: int = 400
+var water_height: int = 8
 
 func _ready():
 	terrain = $"Terrain Mesh"
@@ -29,9 +29,9 @@ func _process(_delta):
 	for i in terrain.get_children():
 		i.free()
 
-func exp_height(x: float, scale: float = 3):
+func exp_height(x: float, scale: float = 1.2):
 	x = clampf(x, -1, 1)
-	return 2.71828 ** (x * scale - scale)
+	return 2.71828 ** (x * scale - scale) - 0.22
 
 func gen_terrain():
 	var p_noise = FastNoiseLite.new()

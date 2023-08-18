@@ -4,8 +4,8 @@ uniform sampler2D sand : source_color;
 uniform sampler2D grass : source_color;
 uniform sampler2D snow : source_color;
 
-uniform float min_sand_height = 2;
-uniform float max_grass_height = 10;
+uniform float min_sand_height = 5;
+uniform float max_grass_height = 13;
 
 varying float vertex_y;
 uniform vec2 uv_scale = vec2(5);

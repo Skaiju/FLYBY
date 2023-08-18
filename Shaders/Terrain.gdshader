@@ -18,7 +18,7 @@ void fragment() {
 	vec3 snow_albedo = texture(snow,UV*uv_scale).rgb;	
 	
 	float weight_1 = smoothstep(min_sand_height, max_grass_height,vertex_y);
-	vec3 final_color = mix(sand_albedo, grass_albedo, weight_1 + 0.1);
+	vec3 final_color = mix(sand_albedo, grass_albedo, weight_1-0.05);
 	
 	ALBEDO = final_color.rgb;
 

@@ -23,6 +23,10 @@ uniform float near = 1.0;
 uniform float far = 100.0;
 uniform vec3 edge_color : source_color;
 
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+
 // Varying variables
 varying float height;
 varying vec3 world_pos;

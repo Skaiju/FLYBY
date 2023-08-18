@@ -5,3 +5,6 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_fh56i")
+shader_parameter/min_sand_height = 0.0
+shader_parameter/max_grass_height = 20.0
+shader_parameter/uv_scale = Vector2(5, 5)

@@ -1,6 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://62rwol8rbe1n"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://62rwol8rbe1n"]
 
 [ext_resource type="Shader" path="res://Shaders/Terrain.gdshader" id="1_fh56i"]
+[ext_resource type="Texture2D" uid="uid://bnwcpr261k76d" path="res://Textures/Grass/Grass001_2K_Color.jpg" id="2_40nse"]
+[ext_resource type="Texture2D" uid="uid://c5e6ud40kh4v7" path="res://Textures/Sand/Ground054_2K_Color.jpg" id="3_oxmqm"]
 
 [resource]
 render_priority = 0
@@ -8,3 +10,5 @@ shader = ExtResource("1_fh56i")
 shader_parameter/min_sand_height = 0.0
 shader_parameter/max_grass_height = 20.0
 shader_parameter/uv_scale = Vector2(5, 5)
+shader_parameter/sand = ExtResource("3_oxmqm")
+shader_parameter/grass = ExtResource("2_40nse")

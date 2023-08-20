@@ -11,26 +11,20 @@ var cam: PackedScene = preload("res://Scenes/Cam.tscn")
 var noise_amplitude: int = 260
 var noise_scale: float = 0.3
 var terrain_res: int = 1
-var size: int = 500
+var size: int = 20
 var water_height: int = 8
 
 func _ready():
 	terrain = $"Terrain Mesh"
 	terrain_collider = $"Terrain Collider"
-	gen_water()
 	gen_terrain()
-	gen_cam()
+	gen_water()
 
 func gen_water():
 	var this_water = water.instantiate()
 	add_child(this_water)
 	this_water.scale = Vector3(size,1,size)
-	this_water.position = Vector3(size/2,water_height,size/2)
-
-func gen_cam():
-	var this_cam = cam.instantiate()
-	this_cam.position = Vector3(size/2,water_height + 5,size/2)
-	add_child(this_cam)
+	this_water.position = Vector3(position.x + size/2,water_height,position.z + size/2)
 	
 func _process(_delta):
 	if update:
@@ -45,7 +39,7 @@ func exp_height(x: float, scale: float = 1.2):
 
 func gen_terrain():
 	var p_noise = FastNoiseLite.new()
-	var offset_noise = randi_range(0,999)	
+	var offset_noise = position
 	var surf_tool = SurfaceTool.new()
 	
 	surf_tool.begin(Mesh.PRIMITIVE_TRIANGLES)

@@ -15,7 +15,7 @@ const float sand_grass_transition = 8.0;
 const float grass_rock_height = 40.0;
 const float grass_rock_transition = 20.0;
 
-const float rock_snow_height = 80.0;
+const float rock_snow_height = 75.0;
 const float rock_snow_transition = 10.0;
 
 varying float vertex_y;
@@ -46,7 +46,7 @@ void fragment() {
 	}
 	else if (vertex_y > sand_grass_height + sand_grass_transition/2.0 && vertex_y < grass_rock_height + grass_rock_transition/2.0)
 	{
-		final_color = mix(grass_albedo, rock_albedo, weight_3);
+		final_color = mix(grass_albedo, rock_albedo, weight_3 - 0.1);
 	}
 	else
 	{

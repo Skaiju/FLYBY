@@ -10,7 +10,7 @@ var water: PackedScene = preload("res://Scenes/Water.tscn")
 var noise_amplitude: int = 260
 var noise_scale: float = 0.3
 var terrain_res: int = 1
-var size: int = 400
+var size: int = 500
 var water_height: int = 8
 
 func _ready():

@@ -24,7 +24,7 @@ func gen_water():
 	var this_water = water.instantiate()
 	add_child(this_water)
 	this_water.scale = Vector3(size,1,size)
-	this_water.position = Vector3(position.x + size/2,water_height,position.z + size/2)
+	this_water.position = Vector3(size/2,water_height,size/2)
 	
 func _process(_delta):
 	if update:
@@ -39,7 +39,7 @@ func exp_height(x: float, scale: float = 1.2):
 
 func gen_terrain():
 	var p_noise = FastNoiseLite.new()
-	var offset_noise = position
+	var offset_noise = global_position
 	var surf_tool = SurfaceTool.new()
 	
 	surf_tool.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -48,7 +48,7 @@ func gen_terrain():
 	
 	for z in size:
 		for x in size:
-			var height_point = exp_height(p_noise.get_noise_2d(x*noise_scale+offset_noise,z*noise_scale+offset_noise))*noise_amplitude
+			var height_point = exp_height(p_noise.get_noise_2d((x + global_position.x) * noise_scale,(z + global_position.z) * noise_scale))*noise_amplitude
 			
 			var uv = Vector2(inverse_lerp(0,size,x),inverse_lerp(0,size,z))
 			surf_tool.set_uv(uv)

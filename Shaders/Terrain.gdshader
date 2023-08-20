@@ -19,7 +19,7 @@ const float rock_snow_height = 75.0;
 const float rock_snow_transition = 10.0;
 
 varying float vertex_y;
-uniform vec2 uv_scale = vec2(40);
+const vec2 uv_scale = vec2(3);
 
 void fragment() {
 	float vert_height = vertex_y;

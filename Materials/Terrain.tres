@@ -10,7 +10,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_fh56i")
-shader_parameter/uv_scale = Vector2(30, 30)
+shader_parameter/uv_scale = Vector2(40, 40)
 shader_parameter/pebbles = ExtResource("3_cc2wb")
 shader_parameter/sand = ExtResource("3_2dpq4")
 shader_parameter/grass = ExtResource("2_ve5u4")

@@ -6,6 +6,7 @@ extends StaticBody3D
 var terrain: MeshInstance3D
 var terrain_collider: CollisionShape3D
 var water: PackedScene = preload("res://Scenes/Water.tscn")
+var cam: PackedScene = preload("res://Scenes/Cam.tscn")
 
 var noise_amplitude: int = 260
 var noise_scale: float = 0.3
@@ -16,12 +17,21 @@ var water_height: int = 8
 func _ready():
 	terrain = $"Terrain Mesh"
 	terrain_collider = $"Terrain Collider"
+	gen_water()
+	gen_terrain()
+	gen_cam()
+
+func gen_water():
 	var this_water = water.instantiate()
 	add_child(this_water)
 	this_water.scale = Vector3(size,1,size)
 	this_water.position = Vector3(size/2,water_height,size/2)
-	gen_terrain()
 
+func gen_cam():
+	var this_cam = cam.instantiate()
+	this_cam.position = Vector3(size/2,water_height + 5,size/2)
+	add_child(this_cam)
+	
 func _process(_delta):
 	if update:
 		gen_terrain()

@@ -63,7 +63,7 @@ func gen_terrain():
 			surf_tool.add_index(1+x+(z*size))	
 			surf_tool.add_index(size+1+x+(z*size))
 			
-	surf_tool.generate_tangents()
+	#surf_tool.generate_tangents()
 	surf_tool.generate_normals()
 	terrain.mesh = surf_tool.commit()
 	terrain_collider.shape = terrain.mesh.create_trimesh_shape()

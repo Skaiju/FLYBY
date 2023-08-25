@@ -50,15 +50,18 @@ func check_current_chunk():
 
 func handle_chunks():
 	var old_chunks = []
+	var old_chunks_pos = []
 	var count = 0
 	for chunk_pos in chunks:
 		var distance = Vector2(abs(chunk_pos.x - updated_chunk.x), abs(chunk_pos.y - updated_chunk.y))
 		print("dist: ", distance)
-		if distance.x >= render_distance or distance.y >= render_distance:
+		if distance.x > render_distance or distance.y > render_distance:
 			old_chunks.append(chunks[chunk_pos])
-			chunks.erase(chunk_pos)
+			old_chunks_pos.append(chunk_pos)
 			count+=1
 	print("updated: ",count," cells")
+	for chunk_pos in old_chunks_pos:
+		chunks.erase(chunk_pos)
 	
 	for z in grid_size:
 		for x in grid_size:

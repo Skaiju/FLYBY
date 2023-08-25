@@ -2,8 +2,8 @@ extends Node3D
 
 var movement: Vector3 = Vector3.ZERO
 var target: Vector3
-var smoothness: float = 0.2
-var speed: float = 20
+var smoothness: float = 0.1
+var speed: float = 40
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	target = position

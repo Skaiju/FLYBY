@@ -3,8 +3,8 @@ extends Node3D
 
 var chunk: PackedScene = preload("res://Scenes/Terrain_chunk.tscn")
 var player: Node3D
-var chunk_size: float = 20
-var render_distance: float = 1
+var chunk_size: float = 40
+var render_distance: float = 8
 var chunks:= {}
 var current_chunk: Vector2 = Vector2(200,200)
 var updated_chunk = current_chunk
@@ -40,10 +40,9 @@ func check_current_chunk():
 
 		if current_chunk != updated_chunk:
 			handle_chunks()
-			print(chunks.size())
 			current_chunk = updated_chunk
 			
-		await get_tree().create_timer(1).timeout		
+		await get_tree().create_timer(0.1).timeout		
 		
 	
 
@@ -54,12 +53,12 @@ func handle_chunks():
 	var count = 0
 	for chunk_pos in chunks:
 		var distance = Vector2(abs(chunk_pos.x - updated_chunk.x), abs(chunk_pos.y - updated_chunk.y))
-		print("dist: ", distance)
+#		print("dist: ", distance)
 		if distance.x > render_distance or distance.y > render_distance:
 			old_chunks.append(chunks[chunk_pos])
 			old_chunks_pos.append(chunk_pos)
 			count+=1
-	print("updated: ",count," cells")
+#	print("updated: ",count," cells")
 	for chunk_pos in old_chunks_pos:
 		chunks.erase(chunk_pos)
 	
@@ -73,6 +72,7 @@ func handle_chunks():
 				old_chunks.remove_at(0)	
 				chunks[chunk_pos].position = Vector3(chunk_pos.x, 0, chunk_pos.y) * (chunk_size - 1)
 				chunks[chunk_pos]._ready()
+				await get_tree().create_timer(0.1).timeout		
 				
 			
 

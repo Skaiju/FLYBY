@@ -30,4 +30,4 @@ sky_mode = 1
 environment = SubResource("Environment_hhp35")
 
 [node name="Player" parent="." instance=ExtResource("3_hwnvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 1500, 200)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 500, 200)

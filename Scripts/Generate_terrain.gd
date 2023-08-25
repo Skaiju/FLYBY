@@ -11,7 +11,7 @@ var cam: PackedScene = preload("res://Scenes/Cam.tscn")
 var noise_amplitude: int = 260
 var noise_scale: float = 0.3
 var terrain_res: int = 1
-var size: int = 20
+var size: int = 40
 var water_height: int = 8
 
 func _ready():
@@ -63,7 +63,7 @@ func gen_terrain():
 			surf_tool.add_index(1+x+(z*size))	
 			surf_tool.add_index(size+1+x+(z*size))
 			
-	#surf_tool.generate_tangents()
+	surf_tool.generate_tangents()
 	surf_tool.generate_normals()
 	terrain.mesh = surf_tool.commit()
 	terrain_collider.shape = terrain.mesh.create_trimesh_shape()

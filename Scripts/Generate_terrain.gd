@@ -1,4 +1,4 @@
-@tool
+
 extends StaticBody3D
 
 @export var update = false

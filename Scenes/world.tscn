@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b67a4e66obqlx" path="res://Shaders/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="1_48abf"]
 [ext_resource type="Script" path="res://Scripts/Handle_world.gd" id="1_l7eg3"]
-[ext_resource type="PackedScene" uid="uid://bgndc2qmc7jfo" path="res://Scenes/player.tscn" id="3_hwnvd"]
+[ext_resource type="PackedScene" uid="uid://b25mmx7p0rbww" path="res://Scenes/Plane.tscn" id="3_pwkk6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_giapj"]
 panorama = ExtResource("1_48abf")
@@ -29,5 +29,4 @@ sky_mode = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hhp35")
 
-[node name="Player" parent="." instance=ExtResource("3_hwnvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 500, 200)
+[node name="Plane" parent="." instance=ExtResource("3_pwkk6")]

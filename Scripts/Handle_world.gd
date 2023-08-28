@@ -4,7 +4,7 @@ extends Node3D
 var chunk: PackedScene = preload("res://Scenes/Terrain_chunk.tscn")
 var player: Node3D
 var chunk_size: float = 40
-var render_distance: float = 8
+var render_distance: float = 5
 var chunks:= {}
 var current_chunk: Vector2 = Vector2(200,200)
 var updated_chunk = current_chunk
@@ -13,7 +13,7 @@ var offset = int(-grid_size/2)
 
 
 func _ready():
-	player = $Player
+	player = $Plane
 	await get_tree().create_timer(1.0).timeout		
 	updated_chunk = Vector2(int(player.position.x/chunk_size),int(player.position.z/chunk_size))
 	initialize_chunks()
@@ -35,14 +35,14 @@ func initialize_chunks():
 			
 			
 func check_current_chunk():
-	while true:	
+	while true:
 		updated_chunk = Vector2(int(player.position.x/chunk_size),int(player.position.z/chunk_size))
 
 		if current_chunk != updated_chunk:
 			handle_chunks()
 			current_chunk = updated_chunk
 			
-		await get_tree().create_timer(0.1).timeout		
+		await get_tree().create_timer(0.1).timeout
 		
 	
 
@@ -58,7 +58,6 @@ func handle_chunks():
 			old_chunks.append(chunks[chunk_pos])
 			old_chunks_pos.append(chunk_pos)
 			count+=1
-#	print("updated: ",count," cells")
 	for chunk_pos in old_chunks_pos:
 		chunks.erase(chunk_pos)
 	

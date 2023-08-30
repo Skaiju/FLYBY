@@ -11,7 +11,7 @@ var cam: PackedScene = preload("res://Scenes/Cam.tscn")
 var noise_amplitude: int = 260
 var noise_scale: float = 0.3
 var terrain_res: int = 1
-var size: int = 40
+var size: int = 100
 var water_height: int = 8
 
 func _ready():

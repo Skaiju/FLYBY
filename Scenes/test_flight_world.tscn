@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://ly5gf4m1dh4i"]
+
+[ext_resource type="Texture2D" uid="uid://b67a4e66obqlx" path="res://Shaders/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="1_amcjx"]
+[ext_resource type="PackedScene" uid="uid://b25mmx7p0rbww" path="res://Scenes/Plane.tscn" id="1_toduh"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wd40l"]
+panorama = ExtResource("1_amcjx")
+
+[sub_resource type="Sky" id="Sky_7m6tb"]
+sky_material = SubResource("PanoramaSkyMaterial_wd40l")
+
+[sub_resource type="Environment" id="Environment_35fhv"]
+background_mode = 2
+sky = SubResource("Sky_7m6tb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0lhc8"]
+size = Vector2(300, 300)
+orientation = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_m0ssb"]
+size = Vector3(10, 50, 10)
+
+[node name="Test flight world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_35fhv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 6.59903, 0)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Plane" parent="." instance=ExtResource("1_toduh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928115, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_0lhc8")
+
+[node name="Block" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8395, 24.9663, 80.7332)
+mesh = SubResource("BoxMesh_m0ssb")
+
+[node name="Block2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.8527, 24.9663, 80.7332)
+mesh = SubResource("BoxMesh_m0ssb")
+
+[node name="Block3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.8527, 24.9663, 49.3774)
+mesh = SubResource("BoxMesh_m0ssb")

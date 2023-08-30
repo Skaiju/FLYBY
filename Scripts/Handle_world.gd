@@ -3,7 +3,7 @@ extends Node3D
 
 var chunk: PackedScene = preload("res://Scenes/Terrain_chunk.tscn")
 var player: Node3D
-var chunk_size: float = 40
+var chunk_size: float = 100
 var render_distance: float = 5
 var chunks:= {}
 var current_chunk: Vector2 = Vector2(200,200)
@@ -33,7 +33,6 @@ func initialize_chunks():
 			add_child(this_chunk)
 			chunks[chunk_pos] = this_chunk
 			
-			
 func check_current_chunk():
 	while true:
 		updated_chunk = Vector2(int(player.position.x/chunk_size),int(player.position.z/chunk_size))
@@ -42,7 +41,7 @@ func check_current_chunk():
 			handle_chunks()
 			current_chunk = updated_chunk
 			
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.5).timeout
 		
 	
 

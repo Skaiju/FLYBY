@@ -11,12 +11,15 @@ script = ExtResource("1_d3i27")
 transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 0, 1.03174)
 
 [node name="FirstPerson" type="Node3D" parent="plane"]
-transform = Transform3D(-7.28524e-08, 0, 1.66667, 0, 1.66667, 0, -1.66667, 0, -7.28524e-08, -0.61, 0.581, 0)
+transform = Transform3D(-7.28524e-08, 0, 1.66667, 0, 1.66667, 0, -1.66667, 0, -7.28524e-08, -0.79308, 0.491202, -3.40739e-08)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.279743, -1.00983)
-fov = 51.0
-script = ExtResource("1_tpwe6")
+[node name="FirstPerson2" type="Node3D" parent="plane"]
+transform = Transform3D(-1.66667, 0, -1.45705e-07, 0, 1.66667, 0, 1.45705e-07, 0, -1.66667, -0.175003, 0.424915, -3.86031)
 
 [node name="ThirdPerson" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.536032, -2.77086)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38419e-07, 0.145818, -1.54238)
+rotation_order = 0
+script = ExtResource("1_tpwe6")

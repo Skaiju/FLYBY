@@ -3,7 +3,7 @@ extends Node3D
 
 var chunk: PackedScene = preload("res://Scenes/Terrain_chunk.tscn")
 var player: Node3D
-var chunk_size: float = 100
+var chunk_size: float = 50
 var render_distance: float = 5
 var chunks:= {}
 var current_chunk: Vector2 = Vector2(200,200)
